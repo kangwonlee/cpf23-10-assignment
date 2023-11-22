@@ -1,0 +1,24 @@
+{
+    "tests": [
+      {
+        "name": "check_grammar",
+        "setup": "sudo -H pip3 install -r requirements.txt",
+        "run": "python ex10.py",
+        "input": "",
+        "output": "",
+        "comparison": "exact",
+        "timeout": 10,
+        "points": 3
+      },
+      {
+        "name": "pytest",
+        "setup": "sudo -H pip3 install -r requirements.txt",
+        "run": "pytest tests/",
+        "input": "",
+        "output": "",
+        "comparison": "exact",
+        "timeout": 10,
+        "points": 2
+      }
+    ]
+  }
