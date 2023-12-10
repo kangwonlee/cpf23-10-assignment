@@ -1,3 +1,4 @@
+import logging
 import pathlib
 import sys
 
@@ -35,6 +36,42 @@ def test_push_one_balance(coin_holder_empty):
 def test_push_two_balance(coin_holder_empty):
     coin_holder_empty.push(10)
     coin_holder_empty.push(500)
+    assert 510 == coin_holder_empty.balance()
+
+
+def test_push__i_v_v__balance(coin_holder_empty):
+    try:
+        coin_holder_empty.push(15)
+    except BaseException as e:
+        logging.error(e)
+
+    coin_holder_empty.push(10)
+    coin_holder_empty.push(500)
+
+    assert 510 == coin_holder_empty.balance()
+
+
+def test_push__v_i_v__balance(coin_holder_empty):
+    coin_holder_empty.push(10)
+
+    try:
+        coin_holder_empty.push(15)
+    except BaseException as e:
+        logging.error(e)
+
+    coin_holder_empty.push(500)
+    assert 510 == coin_holder_empty.balance()
+
+
+def test_push__v_v_i__balance(coin_holder_empty):
+    coin_holder_empty.push(10)
+    coin_holder_empty.push(500)
+
+    try:
+        coin_holder_empty.push(15)
+    except BaseException as e:
+        logging.error(e)
+
     assert 510 == coin_holder_empty.balance()
 
 
